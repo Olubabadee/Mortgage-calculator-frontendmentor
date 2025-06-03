@@ -1,74 +1,7 @@
-// // script.js
-
-// // Select inputs
-// const mortgageAmount = document.getElementById("mortgageAmount");
-// const mortgageItem = document.getElementById("mortgageItem");
-// const interestRate = document.getElementById("interestRate");
-
-// // Select radio buttons
-// const repaymentRadio = document.getElementById("repayment");
-// const interestOnlyRadio = document.getElementById("interestOnly");
-
-// // Select the calculate button
-// const calculateBtn = document.querySelector(".calculate-button");
-
-// // Select result display areas
-// const monthlyPaymentOutput = document.querySelector(".monthly-payments span");
-// const totalPaymentOutput = document.querySelector(".total-payment");
-
-// // CLEAR BUTTON
-// const clearButton = document.querySelector(".clear");
-
-// clearButton.addEventListener("click", function (e) {
-//   e.preventDefault(); // Prevent the default anchor link behavior
-
-//   // Clear all input fields
-//   mortgageAmount.value = "";
-//   mortgageItem.value = "";
-//   interestRate.value = "";
-
-//   // Uncheck radio buttons
-//   repaymentRadio.checked = false;
-//   interestOnlyRadio.checked = false;
-
-//   // Clear the result outputs
-//   monthlyPaymentOutput.textContent = "0.00";
-//   totalPaymentOutput.textContent = "$0.00";
-// });
-
-// function validateInputs() {
-//   const mortgageAmount = document.getElementById("mortgageAmount").value.trim();
-//   const mortgageItem = document.getElementById("mortgageItem").value.trim();
-//   const interestRate = document.getElementById("interestRate").value.trim();
-//   const repaymentChecked = document.getElementById("repayment").checked;
-//   const interestOnlyChecked = document.getElementById("interestOnly").checked;
-
-//   if (!mortgageAmount || isNaN(mortgageAmount) || Number(mortgageAmount) < 1) {
-//     alert("Please enter a valid Mortgage Amount.");
-//     return false;
-//   }
-
-//   if (!mortgageItem || isNaN(mortgageItem) || Number(mortgageItem) < 1) {
-//     alert("Please enter a valid Mortgage Item (term in years).");
-//     return false;
-//   }
-
-//   if (!interestRate || isNaN(interestRate) || Number(interestRate) <= 0) {
-//     alert("Please enter a valid Interest Rate.");
-//     return false;
-//   }
-
-//   if (!repaymentChecked && !interestOnlyChecked) {
-//     alert("Please select a Mortgage Type.");
-//     return false;
-//   }
-
-//   return true;
-// }
-
 // script.js
 
 // DOM Elements
+
 const mortgageAmountInput = document.getElementById("mortgageAmount");
 const mortgageItemInput = document.getElementById("mortgageItem");
 const interestRateInput = document.getElementById("interestRate");
@@ -90,6 +23,38 @@ function clearForm() {
   interestOnlyRadio.checked = false;
   resultPlaceholder.style.display = "block";
   resultDisplay.style.display = "none";
+}
+
+function showError(input) {
+  // Add red outline to the input
+  input.style.outline = "2px solid red";
+
+  // If no error message exists yet, insert it
+  if (
+    !input.nextElementSibling ||
+    !input.nextElementSibling.classList.contains("error-message")
+  ) {
+    const message = document.createElement("small");
+    message.textContent = "The field is required";
+    message.classList.add("error-message");
+    message.style.color = "red";
+    message.style.fontSize = "0.75rem";
+    message.style.marginTop = "4px";
+
+    input.insertAdjacentElement("afterend", message);
+  }
+}
+
+function clearError(input) {
+  input.style.outline = "none";
+
+  // Remove error message if it exists
+  if (
+    input.nextElementSibling &&
+    input.nextElementSibling.classList.contains("error-message")
+  ) {
+    input.nextElementSibling.remove();
+  }
 }
 
 // Validate Inputs
