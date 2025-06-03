@@ -1,0 +1,216 @@
+* {
+  box-sizing: border-box;
+}
+
+.container,
+.app {
+  border-radius: 10px;
+  overflow: hidden; /* Reapply */
+}
+
+input,
+button,
+select,
+textarea {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 16px; /* or match whatever you're using elsewhere */
+  color: inherit; /* ensures it matches surrounding text color */
+}
+
+/* UTILITY CLASSES */
+
+.buttom-margin {
+  margin-bottom: 10px;
+}
+
+.inner-right .content-2 {
+  display: none;
+}
+
+/* NORMAL CLASSES */
+body {
+  height: 100%;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  background-color: #e1f2fa;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  /* Optional: for visibility */
+}
+
+.container {
+  margin: auto;
+  width: 70%;
+  height: 80%;
+  margin-top: 100px;
+  background-color: hsl(202, 55%, 16%);
+  border-radius: 25px;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  border-radius: 20px;
+}
+
+.inner-left {
+  background-color: white;
+  padding: 20px 30px;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between; /* Push h3 left, a right */
+  align-items: center; /* Vertically center them */
+}
+
+form {
+  display: block;
+}
+
+.label-text {
+  display: block;
+  padding: 5px 0px;
+  color: hsl(200, 26%, 54%);
+}
+
+input:not([type="radio"]) {
+  width: 100%;
+  padding: 5px;
+  height: 40px;
+  border: solid 1px;
+  border-radius: 5px;
+}
+
+/* INPUT WRAPPER */
+
+.divide {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.radio-button {
+  height: auto;
+  padding: 5px;
+  display: block;
+  border: solid 1px;
+  border-radius: 5px;
+  margin: 10px 0px;
+  cursor: pointer;
+}
+
+.radio-button:hover {
+  border: solid greenyellow 2px;
+  /* background-color: rgba(197, 250, 117, 0.418); */
+}
+
+.radio-button label,
+.radio-button input {
+  cursor: pointer;
+}
+
+/* GOT THIS FROM CHAT-GPT */
+/* Hide the default radio button */
+input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  vertical-align: middle;
+}
+
+/* Custom selected/checked style */
+input[type="radio"]:checked {
+  border-color: greenyellow;
+  background-color: greenyellow;
+}
+
+/* CHAT GPT ENDED  */
+
+.inner-right {
+  background-color: hsl(202, 55%, 16%);
+  color: white;
+  display: flex;
+  justify-content: center; /* Center children horizontally */
+  align-items: center; /* Optional: center vertically */
+  height: 100%; /* Optional: needed for vertical centering */
+  padding: 20px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.content-1 {
+  text-align: center; /* Center the text inside */
+  max-width: 400px; /* Optional: for readable line length */
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.content-1 p {
+  font-size: 14px;
+}
+
+.content-2 {
+  padding: 10px 20px 10px 5px;
+}
+
+.content-2 p {
+  font-size: 14px;
+  color: #e1f2fa;
+  margin-bottom: 25px;
+}
+
+.content-2 .dark {
+  padding: 20px;
+  border-radius: 5px;
+  background-color: hsl(201, 70%, 8%);
+  width: 100%;
+  border-top: solid 3px greenyellow;
+}
+
+.content-2 .dark h1 {
+  color: greenyellow;
+  font-weight: 800;
+  font-size: 40px;
+}
+
+button {
+  margin: 40px 0px 2px 0px;
+  padding: 10px 40px;
+  color: hsl(202, 55%, 16%);
+  background-color: greenyellow;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* BUTTON ICON  */
+
+.calculate-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.button-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.attribution {
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+}
